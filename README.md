@@ -31,7 +31,7 @@ flowpipe service start
 Run a pipeline:
 
 ```sh
-flowpipe pipeline run list_tasks
+flowpipe pipeline run list_channels
 ```
 
 ### Credentials
@@ -46,7 +46,7 @@ Pipelines have [input variables](https://flowpipe.io/docs/using-flowpipe/mod-var
 - Pass in a value on the command line:
 
   ```shell
-  flowpipe pipeline run list_discord --pipeline-arg token="eya32asW3f323saf32..."
+  flowpipe pipeline run list_channels --pipeline-arg token="eya32asW3f323saf32..."
   ```
 
 These are only some of the ways you can set variables. For a full list, please see [Passing Input Variables](https://flowpipe.io/docs/using-flowpipe/mod-variables#passing-input-variables).

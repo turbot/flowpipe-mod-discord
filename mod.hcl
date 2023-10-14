@@ -1,4 +1,3 @@
-
 mod "discord" {
   title       = "Discord"
   description = "Run pipelines and triggers that interact with Discord."
@@ -8,8 +7,8 @@ mod "discord" {
   categories    = ["discord"]
 
   opengraph {
-    title       = "discord"
-    description = "Run pipelines and triggers that interact with discord."
+    title       = "Discord"
+    description = "Run pipelines and triggers that interact with Discord."
     image       = "/images/flowpipe/mods/turbot/discord-social-graphic.png"
   }
 }
