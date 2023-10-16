@@ -1,5 +1,5 @@
 pipeline "create_channel" {
-  title       = "Create a channel in Discord"
+  title       = "Create Channel"
   description = "This pipeline creates a channel in Discord using the Discord BOT token."
 
   param "token" {

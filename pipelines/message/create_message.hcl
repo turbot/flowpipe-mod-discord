@@ -1,5 +1,5 @@
 pipeline "create_message" {
-  title       = "Sent a message in Discord"
+  title       = "Create Message"
   description = "This pipeline sent a message in Discord using the Discord BOT token."
 
   param "token" {

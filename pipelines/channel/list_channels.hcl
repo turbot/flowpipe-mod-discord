@@ -1,5 +1,5 @@
 pipeline "list_channels" {
-  title       = "List All Channels in Discord Server"
+  title       = "List Channels"
   description = "This pipeline lists all channels in Discord using the Discord BOT token."
 
   param "token" {

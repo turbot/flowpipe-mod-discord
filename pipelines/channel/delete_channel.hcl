@@ -1,5 +1,5 @@
 pipeline "delete_channel" {
-  title       = "Delete a Channel in Discord by ID"
+  title       = "Delete Channel"
   description = "This pipeline deletes a channel in Discord by its ID using the Discord BOT ID."
 
   param "token" {
