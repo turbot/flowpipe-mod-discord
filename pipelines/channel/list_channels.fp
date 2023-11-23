@@ -10,7 +10,7 @@ pipeline "list_channels" {
 
   param "guild_id" {
     description = "The ID of the guild."
-    type        = string
+    type        = number
   }
 
   step "http" "list_channels" {

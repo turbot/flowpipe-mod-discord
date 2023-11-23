@@ -10,7 +10,7 @@ pipeline "create_channel" {
 
   param "guild_id" {
     description = "The ID of the guild."
-    type        = string
+    type        = number
   }
 
   param "name" {

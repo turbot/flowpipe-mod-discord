@@ -10,7 +10,7 @@ pipeline "create_message" {
 
   param "channel_id" {
     description = "The ID of the channel to send the message to"
-    type        = string
+    type        = number
   }
 
   param "message" {

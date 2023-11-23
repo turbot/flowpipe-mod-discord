@@ -10,7 +10,7 @@ pipeline "delete_channel" {
 
   param "channel_id" {
     description = "The ID of the channel to delete."
-    type        = string
+    type        = number
   }
 
   step "http" "delete_channel" {
