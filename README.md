@@ -5,6 +5,8 @@ A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
 - Create Channels
 - And more!
 
+<!-- ![image](https://github.com/turbot/flowpipe-mod-discord/blob/main/docs/images/flowpipe_test_run.png?raw=true) -->
+
 ## Documentation
 
 - **[Pipelines →](https://hub.flowpipe.io/mods/turbot/discord/pipelines)**
