@@ -1,4 +1,4 @@
 variable "token" {
   type        = string
-  description = "The Discord BOT token."
+  description = "The Discord bot token."
 }

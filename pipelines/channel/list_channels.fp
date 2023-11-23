@@ -1,15 +1,15 @@
 pipeline "list_channels" {
-  title       = "List Channels"
-  description = "This pipeline lists all channels in Discord using the Discord BOT token."
+  title       = "Get Guild Channels"
+  description = "Returns a list of guild channels."
 
   param "token" {
-    description = "Discord BOT token for authentication."
+    description = local.token_param_description
     type        = string
     default     = var.token
   }
 
   param "guild_id" {
-    description = "The ID of the server for which you want to list channels."
+    description = "The ID of the guild."
     type        = string
   }
 
@@ -22,7 +22,7 @@ pipeline "list_channels" {
 
   output "channels" {
     value       = step.http.list_channels.response_body
-    description = "The list of channels in the server."
+    description = "The list of channels in the guild."
   }
 
 }

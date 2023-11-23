@@ -1,25 +1,24 @@
 pipeline "create_message" {
   title       = "Create Message"
-  description = "This pipeline sent a message in Discord using the Discord BOT token."
+  description = "Post a message to a guild text or DM channel."
 
   param "token" {
-    description = "Discord BOT token for authentication."
+    description = local.token_param_description
     type        = string
     default     = var.token
   }
 
   param "channel_id" {
-    description = "The ID of the Discord channel where you want to create the discord."
+    description = "The ID of the channel to send the message to"
     type        = string
   }
 
   param "message" {
-    description = "The message you want to send to the Discord."
+    description = "The message to send."
     type        = string
   }
 
   step "http" "create_message" {
-    title  = "title"
     method = "post"
     url    = "https://discord.com/api/v10/channels/${param.channel_id}/messages"
 
@@ -35,7 +34,7 @@ pipeline "create_message" {
   }
 
   output "message" {
-    description = "The message that was send."
+    description = "The sent message."
     value       = step.http.create_message.response_body
   }
 }

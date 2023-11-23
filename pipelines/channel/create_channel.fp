@@ -1,25 +1,25 @@
 pipeline "create_channel" {
-  title       = "Create Channel"
-  description = "This pipeline creates a channel in Discord using the Discord BOT token."
+  title       = "Create Guild Channel"
+  description = "Create a new channel for the guild."
 
   param "token" {
-    description = "Discord BOT token for authentication."
+    description = local.token_param_description
     type        = string
     default     = var.token
   }
 
   param "guild_id" {
-    description = "The ID of the Discord guild."
+    description = "The ID of the guild."
     type        = string
   }
 
   param "name" {
-    description = "The name of the Discord channel."
+    description = "The name for the channel."
     type        = string
   }
 
   param "type" {
-    description = "The type of the Discord channel."
+    description = "The type of the channel."
     type        = string
   }
 
@@ -29,18 +29,18 @@ pipeline "create_channel" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bot ${param.token}"
+      Authorization = "${param.token}"
     }
 
     // Additional fields can be added here as needed
     request_body = jsonencode({
-      name       = param.name
-      type       = param.type
+      name = param.name
+      type = param.type
     })
   }
 
   output "channel" {
-    description = "The discord channel that was created."
+    description = "The created channel."
     value       = step.http.create_channel.response_body
   }
 }
