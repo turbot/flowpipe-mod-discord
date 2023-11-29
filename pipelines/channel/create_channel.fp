@@ -3,24 +3,24 @@ pipeline "create_channel" {
   description = "Create a new channel for the guild."
 
   param "token" {
-    description = local.token_param_description
     type        = string
+    description = local.token_param_description
     default     = var.token
   }
 
   param "guild_id" {
-    description = "The ID of the guild."
     type        = number
+    description = "The ID of the guild."
   }
 
   param "name" {
-    description = "The name for the channel."
     type        = string
+    description = "The name for the channel."
   }
 
   param "type" {
-    description = "The type of the channel."
     type        = string
+    description = "The type of the channel."
   }
 
   step "http" "create_channel" {

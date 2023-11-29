@@ -3,14 +3,14 @@ pipeline "list_channels" {
   description = "Returns a list of guild channels."
 
   param "token" {
-    description = local.token_param_description
     type        = string
+    description = local.token_param_description
     default     = var.token
   }
 
   param "guild_id" {
-    description = "The ID of the guild."
     type        = number
+    description = "The ID of the guild."
   }
 
   step "http" "list_channels" {
@@ -21,8 +21,8 @@ pipeline "list_channels" {
   }
 
   output "channels" {
-    value       = step.http.list_channels.response_body
     description = "The list of channels in the guild."
+    value       = step.http.list_channels.response_body
   }
 
 }

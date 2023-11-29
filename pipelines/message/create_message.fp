@@ -3,19 +3,19 @@ pipeline "create_message" {
   description = "Post a message to a guild text or DM channel."
 
   param "token" {
-    description = local.token_param_description
     type        = string
+    description = local.token_param_description
     default     = var.token
   }
 
   param "channel_id" {
-    description = "The ID of the channel to send the message to"
     type        = number
+    description = "The ID of the channel to send the message to"
   }
 
   param "message" {
-    description = "The message to send."
     type        = string
+    description = "The message to send."
   }
 
   step "http" "create_message" {

@@ -3,14 +3,14 @@ pipeline "delete_channel" {
   description = "Delete a channel, or close a private message."
 
   param "token" {
-    description = local.token_param_description
     type        = string
+    description = local.token_param_description
     default     = var.token
   }
 
   param "channel_id" {
-    description = "The ID of the channel to delete."
     type        = number
+    description = "The ID of the channel to delete."
   }
 
   step "http" "delete_channel" {
