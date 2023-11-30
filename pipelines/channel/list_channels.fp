@@ -9,7 +9,7 @@ pipeline "list_channels" {
   }
 
   param "guild_id" {
-    type        = number
+    type        = string
     description = "The ID of the guild."
   }
 
