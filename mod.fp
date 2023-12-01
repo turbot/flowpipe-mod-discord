@@ -7,7 +7,7 @@ mod "discord" {
   categories    = ["discord", "library"]
 
   opengraph {
-    title       = "Discord"
+    title       = "Discord Mod for Flowpipe"
     description = "Run pipelines to supercharge your Discord workflows using Flowpipe."
     image       = "/images/flowpipe/mods/turbot/discord-social-graphic.png"
   }

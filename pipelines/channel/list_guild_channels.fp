@@ -1,4 +1,4 @@
-pipeline "list_channels" {
+pipeline "list_guild_channels" {
   title       = "Get Guild Channels"
   description = "Returns a list of guild channels."
 
@@ -13,7 +13,7 @@ pipeline "list_channels" {
     description = "The ID of the guild."
   }
 
-  step "http" "list_channels" {
+  step "http" "list_guild_channels" {
     url = "https://discord.com/api/v10/guilds/${param.guild_id}/channels"
     request_headers = {
       Authorization = "Bot ${param.token}"
@@ -22,7 +22,7 @@ pipeline "list_channels" {
 
   output "channels" {
     description = "The list of channels in the guild."
-    value       = step.http.list_channels.response_body
+    value       = step.http.list_guild_channels.response_body
   }
 
 }

@@ -1,4 +1,4 @@
-pipeline "create_channel" {
+pipeline "create_guild_channel" {
   title       = "Create Guild Channel"
   description = "Create a new channel for the guild."
 
@@ -23,7 +23,7 @@ pipeline "create_channel" {
     description = "The type of the channel."
   }
 
-  step "http" "create_channel" {
+  step "http" "create_guild_channel" {
     method = "post"
     url    = "https://discord.com/api/v10/guilds/${param.guild_id}/channels"
 
@@ -41,6 +41,6 @@ pipeline "create_channel" {
 
   output "channel" {
     description = "The created channel."
-    value       = step.http.create_channel.response_body
+    value       = step.http.create_guild_channel.response_body
   }
 }
