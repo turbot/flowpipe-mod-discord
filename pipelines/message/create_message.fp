@@ -2,10 +2,10 @@ pipeline "create_message" {
   title       = "Create Message"
   description = "Post a message to a guild text or DM channel."
 
-  param "token" {
+  param "cred" {
     type        = string
-    description = local.token_param_description
-    default     = var.token
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "channel_id" {
@@ -24,10 +24,9 @@ pipeline "create_message" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bot ${param.token}"
+      Authorization = "Bot ${credential.discord[param.cred].token}"
     }
 
-    // Additional fields can be added here as needed
     request_body = jsonencode({
       content = param.message
     })

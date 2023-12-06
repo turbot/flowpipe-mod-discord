@@ -2,10 +2,10 @@ pipeline "create_guild_channel" {
   title       = "Create Guild Channel"
   description = "Create a new channel for the guild."
 
-  param "token" {
+  param "cred" {
     type        = string
-    description = local.token_param_description
-    default     = var.token
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "guild_id" {
@@ -29,10 +29,9 @@ pipeline "create_guild_channel" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "${param.token}"
+      Authorization = "Bot ${credential.discord[param.cred].token}"
     }
 
-    // Additional fields can be added here as needed
     request_body = jsonencode({
       name = param.name
       type = param.type

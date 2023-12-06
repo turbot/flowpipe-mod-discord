@@ -2,10 +2,10 @@ pipeline "list_guild_channels" {
   title       = "Get Guild Channels"
   description = "Returns a list of guild channels."
 
-  param "token" {
+  param "cred" {
     type        = string
-    description = local.token_param_description
-    default     = var.token
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "guild_id" {
@@ -16,7 +16,7 @@ pipeline "list_guild_channels" {
   step "http" "list_guild_channels" {
     url = "https://discord.com/api/v10/guilds/${param.guild_id}/channels"
     request_headers = {
-      Authorization = "Bot ${param.token}"
+      Authorization = "Bot ${credential.discord[param.cred].token}"
     }
   }
 

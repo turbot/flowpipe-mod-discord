@@ -1,4 +1,4 @@
 # Common descriptions
 locals {
-  token_param_description = "The Discord bot token."
+  cred_param_description = "The credential to use to authenticate with Discord."
 }
