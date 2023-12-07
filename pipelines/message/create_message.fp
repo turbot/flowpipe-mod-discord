@@ -2,6 +2,10 @@ pipeline "create_message" {
   title       = "Create Message"
   description = "Post a message to a guild text or DM channel."
 
+  tags = {
+    type = "featured"
+  }
+
   param "cred" {
     type        = string
     description = local.cred_param_description
