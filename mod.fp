@@ -4,7 +4,7 @@ mod "discord" {
   color         = "#5765F2"
   documentation = file("./docs/index.md")
   icon          = "/images/flowpipe/mods/turbot/discord.svg"
-  categories    = ["discord", "library"]
+  categories    = ["messaging"]
 
   opengraph {
     title       = "Discord Mod for Flowpipe"
