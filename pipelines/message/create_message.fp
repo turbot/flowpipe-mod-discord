@@ -37,7 +37,7 @@ pipeline "create_message" {
   }
 
   output "message" {
-    description = "The sent message."
+    description = "The sent message details."
     value       = step.http.create_message.response_body
   }
 }

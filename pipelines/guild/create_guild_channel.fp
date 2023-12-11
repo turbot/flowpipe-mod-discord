@@ -43,7 +43,7 @@ pipeline "create_guild_channel" {
   }
 
   output "channel" {
-    description = "The created channel."
+    description = "The created channel details."
     value       = step.http.create_guild_channel.response_body
   }
 }
