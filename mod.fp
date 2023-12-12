@@ -2,7 +2,7 @@ mod "discord" {
   title         = "Discord"
   description   = "Run pipelines to supercharge your Discord workflows using Flowpipe."
   color         = "#5765F2"
-  documentation = file("./docs/index.md")
+  documentation = file("./README.md")
   icon          = "/images/mods/turbot/discord.svg"
   categories    = ["messaging"]
 

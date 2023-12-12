@@ -1,11 +1,6 @@
 # Discord Mod for Flowpipe
 
-A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
-- Send Messages
-- Create Channels
-- And more!
-
-<!-- ![image](https://github.com/turbot/flowpipe-mod-discord/blob/main/docs/images/flowpipe_test_run.png?raw=true) -->
+Discord pipeline library for [Flowpipe](https://flowpipe.io) enabling seamless integration of Discord services into your workflows.
 
 ## Documentation
 
@@ -29,64 +24,65 @@ git clone https://github.com/turbot/flowpipe-mod-discord.git
 cd flowpipe-mod-discord
 ```
 
-### Configuration
+### Credentials
 
-Configure your credentials:
+By default, the following environment variables will be used for authentication:
+
+- `DISCORD_TOKEN`
+
+You can also create `credential` resources in configuration files:
 
 ```sh
-cp flowpipe.fpvars.example flowpipe.fpvars
-vi flowpipe.fpvars
+vi ~/.flowpipe/config/discord.fpc
 ```
 
-It's recommended to configure credentials through [input variables](https://flowpipe.io/docs/using-flowpipe/mod-variables) by setting them in the `flowpipe.fpvars` file.
+```hcl
+credential "discord" "my_discord" {
+  token = "00B630jSCGU4jV4o5Yh4KQMAdqizwE2OgVcS7N9UHb"
+}
+```
 
-**Note:** Credentials can also be passed in each pipeline run with `--arg token=YourBotToken`.
-
-Additional input variables may be defined in the mod's `variables.hcl` file that can be configured to better match your environment and requirements.
-
-Variables with defaults set do not need to be explicitly set, but it may be helpful to override them.
+For more information on credentials in Flowpipe, please see [Managing Credentials](https://flowpipe.io/docs/run/credentials).
 
 ### Usage
 
-Start the Flowpipe server to get started:
+List pipelines:
 
 ```sh
-flowpipe server
+flowpipe pipeline list
 ```
 
 Run a pipeline:
 
 ```sh
-flowpipe pipeline run list_channels --arg guild_id=290926798626999250
+flowpipe pipeline run list_guild_channels
 ```
 
-## Passing pipeline arguments
-
-To pass values into pipeline [parameters](https://flowpipe.io/docs/using-flowpipe/pipeline-parameters), use the following syntax:
+You can pass in pipeline arguments as well:
 
 ```sh
 flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg message="Hello World!"
 ```
 
-Multiple pipeline args can be passed in with separate `--arg` flags.
+To use a specific `credential`, specify the `cred` pipeline argument:
 
-For more information on passing arguments, please see [Pipeline Args](https://flowpipe.io/docs/using-flowpipe/pipeline-arguments).
+```sh
+flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg cred=discord_profile --arg message="Hello World!"
+```
 
-## Contributing
+For more examples on how you can run pipelines, please see [Run Pipelines](https://flowpipe.io/docs/run/pipelines).
 
-If you have an idea for additional pipelines or just want to help maintain and extend this mod ([or others](https://github.com/topics/flowpipe-mod)) we would love you to join the community and start contributing.
+## Open Source & Contributing
 
-- **[Join #flowpipe in our Slack community](https://flowpipe.io/community/join)**
+This repository is published under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0). Please see our [code of conduct](https://github.com/turbot/.github/blob/main/CODE_OF_CONDUCT.md). We look forward to collaborating with you!
 
-Please see the [contribution guidelines](https://github.com/turbot/flowpipe/blob/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/turbot/flowpipe/blob/main/CODE_OF_CONDUCT.md).
+[Flowpipe](https://flowpipe.io) is a product produced from this open source software, exclusively by [Turbot HQ, Inc](https://turbot.com). It is distributed under our commercial terms. Others are allowed to make their own distribution of the software, but cannot use any of the Turbot trademarks, cloud services, etc. You can learn more in our [Open Source FAQ](https://turbot.com/open-source).
+
+## Get Involved
+
+**[Join #flowpipe on Slack →](https://flowpipe.io/community/join)**
 
 Want to help but not sure where to start? Pick up one of the `help wanted` issues:
 
 - [Flowpipe](https://github.com/turbot/flowpipe/labels/help%20wanted)
 - [Discord Mod](https://github.com/turbot/flowpipe-mod-discord/labels/help%20wanted)
-
-## License
-
-This mod is licensed under the [Apache License 2.0](https://github.com/turbot/flowpipe-mod-discord/blob/main/LICENSE).
-
-Flowpipe is licensed under the [AGPLv3](https://github.com/turbot/flowpipe/blob/main/LICENSE).
