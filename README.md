@@ -1,6 +1,5 @@
 # Discord Mod for Flowpipe
 
-<!-- ![image](https://github.com/turbot/flowpipe-mod-discord/blob/main/docs/images/flowpipe_test_run.png?raw=true) -->
 Discord pipeline library for [Flowpipe](https://flowpipe.io) enabling seamless integration of Discord services into your workflows.
 
 ## Documentation
