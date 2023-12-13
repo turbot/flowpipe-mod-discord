@@ -1,23 +1,23 @@
 pipeline "delete_channel" {
   title       = "Delete Channel"
-  description = "This pipeline deletes a channel in Discord by its ID using the Discord BOT ID."
+  description = "Delete a channel, or close a private message."
 
-  param "token" {
-    description = "Discord BOT token for authentication."
+  param "cred" {
     type        = string
-    default     = var.token
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "channel_id" {
-    description = "The ID of the channel you want to delete."
     type        = string
+    description = "The ID of the channel to delete."
   }
 
   step "http" "delete_channel" {
     url    = "https://discord.com/api/v10/channels/${param.channel_id}"
     method = "delete"
     request_headers = {
-      Authorization = "Bot ${param.token}"
+      Authorization = "Bot ${credential.discord[param.cred].token}"
     }
   }
 

@@ -1,8 +1,12 @@
 # Discord Mod for Flowpipe
 
-Run pipelines and use triggers for Discord resources.
+Discord pipeline library for [Flowpipe](https://flowpipe.io) enabling seamless integration of Discord services into your workflows.
 
-## Getting started
+## Documentation
+
+- **[Pipelines →](https://hub.flowpipe.io/mods/turbot/discord/pipelines)**
+
+## Getting Started
 
 ### Installation
 
@@ -20,44 +24,63 @@ git clone https://github.com/turbot/flowpipe-mod-discord.git
 cd flowpipe-mod-discord
 ```
 
-### Usage
+### Credentials
 
-Start your server to get started:
+By default, the following environment variables will be used for authentication:
+
+- `DISCORD_TOKEN`
+
+You can also create `credential` resources in configuration files:
 
 ```sh
-flowpipe service start
+vi ~/.flowpipe/config/discord.fpc
+```
+
+```hcl
+credential "discord" "my_discord" {
+  token = "00B630jSCGU4jV4o5Yh4KQMAdqizwE2OgVcS7N9UHb"
+}
+```
+
+For more information on credentials in Flowpipe, please see [Managing Credentials](https://flowpipe.io/docs/run/credentials).
+
+### Usage
+
+List pipelines:
+
+```sh
+flowpipe pipeline list
 ```
 
 Run a pipeline:
 
 ```sh
-flowpipe pipeline run list_channels
+flowpipe pipeline run list_guild_channels
 ```
 
-### Credentials
+You can pass in pipeline arguments as well:
 
-This mod uses the credentials configured in `flowpipe.pvars` or passed through `--pipeline-args token`.
+```sh
+flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg message="Hello World!"
+```
 
-### Configuration
+To use a specific `credential`, specify the `cred` pipeline argument:
 
-Pipelines have [input variables](https://flowpipe.io/docs/using-flowpipe/mod-variables) that can be configured to better match your environment and requirements. Some variables have defaults defined in its source file, e.g., `variables.hcl`, but these can be overwritten in several ways:
+```sh
+flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg cred=discord_profile --arg message="Hello World!"
+```
 
-- Copy and rename the `flowpipe.pvars.example` file to `flowpipe.pvars`, and then modify the variable values inside that file
-- Pass in a value on the command line:
+For more examples on how you can run pipelines, please see [Run Pipelines](https://flowpipe.io/docs/run/pipelines).
 
-  ```shell
-  flowpipe pipeline run list_channels --pipeline-arg token="eya32asW3f323saf32..."
-  ```
+## Open Source & Contributing
 
-These are only some of the ways you can set variables. For a full list, please see [Passing Input Variables](https://flowpipe.io/docs/using-flowpipe/mod-variables#passing-input-variables).
+This repository is published under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0). Please see our [code of conduct](https://github.com/turbot/.github/blob/main/CODE_OF_CONDUCT.md). We look forward to collaborating with you!
 
-## Contributing
+[Flowpipe](https://flowpipe.io) is a product produced from this open source software, exclusively by [Turbot HQ, Inc](https://turbot.com). It is distributed under our commercial terms. Others are allowed to make their own distribution of the software, but cannot use any of the Turbot trademarks, cloud services, etc. You can learn more in our [Open Source FAQ](https://turbot.com/open-source).
 
-If you have an idea for additional controls or just want to help maintain and extend this mod ([or others](https://github.com/topics/flowpipe-mod)) we would love you to join the community and start contributing.
+## Get Involved
 
-- **[Join our Slack community →](https://flowpipe.io/community/join)** and hang out with other Mod developers.
-
-Please see the [contribution guidelines](https://github.com/turbot/flowpipe/blob/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/turbot/flowpipe/blob/main/CODE_OF_CONDUCT.md). All contributions are subject to the [Apache 2.0 open source license](https://github.com/turbot/flowpipe-mod-discord/blob/main/LICENSE).
+**[Join #flowpipe on Slack →](https://flowpipe.io/community/join)**
 
 Want to help but not sure where to start? Pick up one of the `help wanted` issues:
 
