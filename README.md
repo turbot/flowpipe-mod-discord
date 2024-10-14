@@ -102,7 +102,7 @@ flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg m
 To use a specific `connection`, specify the `conn` pipeline argument:
 
 ```sh
-flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg conn=discord_profile --arg message="Hello World"
+flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg conn=connection.discord.discord_profile --arg message="Hello World"
 ```
 
 ## Open Source & Contributing
