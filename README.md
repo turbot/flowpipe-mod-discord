@@ -17,25 +17,25 @@ brew tap turbot/tap
 brew install flowpipe
 ```
 
-### Credentials
+### Connections
 
 By default, the following environment variables will be used for authentication:
 
 - `DISCORD_TOKEN`
 
-You can also create `credential` resources in configuration files:
+You can also create `connection` resources in configuration files:
 
 ```sh
 vi ~/.flowpipe/config/discord.fpc
 ```
 
 ```hcl
-credential "discord" "my_discord" {
+connection "discord" "my_discord" {
   token = "00B630jSCGU4jV4o5Yh4KQMAdqizwE2OgVcS7N9UHb"
 }
 ```
 
-For more information on credentials in Flowpipe, please see [Managing Credentials](https://flowpipe.io/docs/run/credentials).
+For more information on connection in Flowpipe, please see [Managing Connections](https://flowpipe.io/docs/run/connections).
 
 ### Usage
 
@@ -99,10 +99,10 @@ Run a pipeline:
 flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg message="Hello World!"
 ```
 
-To use a specific `credential`, specify the `cred` pipeline argument:
+To use a specific `connection`, specify the `conn` pipeline argument:
 
 ```sh
-flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg cred=discord_profile --arg message="Hello World!"
+flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg conn=discord_profile --arg message="Hello World!"
 ```
 
 ## Open Source & Contributing

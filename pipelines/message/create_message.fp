@@ -3,13 +3,13 @@ pipeline "create_message" {
   description = "Post a message to a guild text or DM channel."
 
   tags = {
-    type = "featured"
+    recommended = "true"
   }
 
-  param "cred" {
-    type        = string
-    description = local.cred_param_description
-    default     = "default"
+  param "conn" {
+    type        = connection.discord
+    description = local.conn_param_description
+    default     = connection.discord.default
   }
 
   param "channel_id" {
@@ -28,7 +28,7 @@ pipeline "create_message" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bot ${credential.discord[param.cred].token}"
+      Authorization = "Bot ${param.conn.token}"
     }
 
     request_body = jsonencode({
