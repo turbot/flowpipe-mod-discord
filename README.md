@@ -96,7 +96,7 @@ flowpipe pipeline list
 Run a pipeline:
 
 ```sh
-flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg message="Hello World!"
+flowpipe pipeline run create_message --arg channel_id=705216630279993882 --arg message="Hello World"
 ```
 
 To use a specific `connection`, specify the `conn` pipeline argument:
