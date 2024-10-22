@@ -3,13 +3,13 @@ pipeline "create_guild_channel" {
   description = "Create a new channel for the guild."
 
   tags = {
-    type = "featured"
+    recommended = "true"
   }
 
-  param "cred" {
-    type        = string
-    description = local.cred_param_description
-    default     = "default"
+  param "conn" {
+    type        = connection.discord
+    description = local.conn_param_description
+    default     = connection.discord.default
   }
 
   param "guild_id" {
@@ -33,7 +33,7 @@ pipeline "create_guild_channel" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bot ${credential.discord[param.cred].token}"
+      Authorization = "Bot ${param.conn.token}"
     }
 
     request_body = jsonencode({
